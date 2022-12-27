@@ -240,3 +240,7 @@ a{
 	color: #3D3D3D;
 	text-align: center;
 }
+
+#connect:hover{
+	background: #0E2F28;
+}
