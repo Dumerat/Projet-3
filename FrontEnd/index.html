@@ -9,19 +9,28 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css"> 
+	<script src="https://kit.fontawesome.com/84d848d236.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+<!--Barre d'édit au dessus du header en mode admin-->
+<nav id="adminPanel">
+	<button id="editButton"><i class="fa-regular fa-pen-to-square"></i>Mode édition</button>
+	<button id="publishButton"><a href="index.html">publier les changements</a></button>
+</nav>
+
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<li> <a href="login.html">login </a></li>
+			<li><a id="loginA">login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
 </header>
+
 <main>
 	<section id="introduction">
 		<figure>
@@ -34,19 +43,34 @@
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
 	</section>
-	<section id="portfolio">
-		<h2>Mes Projets</h2>
-
-	<section id="buttonFilter">
-		<button onclick="filter('filter0')">Tous</button>
-		<button onclick="filter('filter1')">Objets</button>
-		<button onclick="filter('filter2')">Appartements</button>
-		<button onclick="filter('filter3')">Hôtels & restaurants</button>
-	</section>
-
-		<div class="gallery">
-
+	<div id="modal">
+		<div id="modalContent">
+			<div id="modalHeader"> 
+				<button class="buttonBackModal">
+					<i class="fa-solid fa-arrow-left"></i>
+				</button>
+				<button id="buttonCloseModal">
+					<i class="fa-solid fa-xmark"></i>
+				</button>
+			</div>
+			<div id="modalMain">
+				<h3>Galerie photo</h3>
+				<div class="modalGallery"></div>
+				<hr>
+				<button class="buttonAddImage">Ajouter une photo</button>
+				<button class="buttonDeleteGallery">Supprime la galerie</button>
+			</div>
 		</div>
+	</div>
+	<section id="portfolio">
+		<h2>Mes Projets <i id="editMode" class="fa-regular fa-pen-to-square"><span id="editModeModifier"> modifier</i></span></h2>
+		<section id="buttonFilter">
+			<button onclick="filter('filter0')">Tous</button>
+			<button onclick="filter('filter1')">Objets</button>
+			<button onclick="filter('filter2')">Appartements</button>
+			<button onclick="filter('filter3')">Hôtels & restaurants</button>
+		</section>
+		<div class="gallery"></div>
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>

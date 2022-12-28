@@ -27,14 +27,13 @@ form.addEventListener("submit", (event) => {
         else
         {
             //div.innerHTML += `<p> Erreur dans l'identifiant ou le mot de passe </p>`
-            alert("Erreur dans l'identifiant ou le mot de passe")
+            alert("Erreur dans l'identifiant ou le mot de passe") //erreur 401 si mauvais mot de passe ou 404 si mauvais mail
         }
     })
     .then((data) => {
-        localStorage.setItem("userId", data.userId); //stockage userId
-        localStorage.setItem("token", data.token);  //stockage token
+       //sessionStorage.setItem("userId", data.userId); //stockage userId
+        sessionStorage.setItem("token", data.token);  //stockage token
         document.location.href = "index.html";  //redirection
-        console.log(user)
         console.log(data.token)
     })
     .catch((error) => {
@@ -42,8 +41,4 @@ form.addEventListener("submit", (event) => {
     });
 
 });
-
-
-
-
 //token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MTg3NDkzOSwiZXhwIjoxNjUxOTYxMzM5fQ.JGN1p8YIfR-M-5eQ-Ypy6Ima5cKA4VbfL2xMr2MgHm4"
