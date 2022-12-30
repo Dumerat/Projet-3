@@ -31,21 +31,21 @@ function filter(filterId) //filtre les photos par leur id
 }
 
 fetch('http://localhost:5678/api/works')
-    .then(function(res) 
+    .then((res) =>
     {
         if (res.ok) //si le fetch fonctionne
         {    
             return res.json(); //récupérer les données de l'api au format json
         }
     })
-    .then(function(value)
+    .then((value) =>
     {
         for(i=0; i< value.length; i++) //boucle pour récupérer et séparer chaque élément
         {
             createElement(value[i]); //appelle la fonction createElement pour chaque photo reçu de l'api
         }
     })
-    .catch(function(error)//en cas d'erreur
+    .catch((error) =>//en cas d'erreur
     {
         console.log(error);
     });
@@ -53,16 +53,13 @@ fetch('http://localhost:5678/api/works')
 function loggedIn() //fonction pour faire disparaitre la barre des filtres et apparaitre le bouton modifier
 {
     const token = sessionStorage.getItem("token");
-    if (token === null) {return 0}
-    else if (token.startsWith({toString:() => "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"}))
+    if (!token) {return 0}
+    else if (token)
     {
         document.getElementById("buttonFilter").style.display = 'none';
         document.getElementById("loginA").textContent = "logout";
         document.getElementById("editMode").style.display = "inline";
-    }
-    else
-    {
-        console.log("invalid token")
+        document.getElementById("adminPanel").style.display = "flex";
     }
 }
 loggedIn()
@@ -73,18 +70,14 @@ login.addEventListener('click', loginButton);
 function loginButton() //fonction pour changer le bouton login pour logout et inversement
 {
     const token = sessionStorage.getItem("token");
-    if (token == undefined)
+    if (!token)
     {
         document.location.href = "login.html";
     }
-    else if(token.startsWith({toString:() => "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"}))
+    else if(token)
     {
         sessionStorage.clear("token")
         document.location.href = "index.html"
-    }
-    else
-    {
-        document.location.href = "login.html";
     }
 };
 

@@ -405,5 +405,13 @@ button{
 
 .arrowMove{
 	margin-left: -42px;
-	visibility: hidden;
+	opacity: 0;
+}
+
+.figureModal:hover .arrowMove{
+	opacity: 1;
+}
+
+@media screen {
+	
 }
