@@ -392,3 +392,18 @@ button{
 #editModeModifier{
 	font-family: work-sans;
 }
+
+.trashCan, .arrowMove{
+	position: fixed;
+	margin-top: 6px;
+	margin-left: -20px;
+	padding: 4px;
+	font-size: 10px;
+	color: white;
+	background-color: #000;
+}
+
+.arrowMove{
+	margin-left: -42px;
+	visibility: hidden;
+}

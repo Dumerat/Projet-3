@@ -4,7 +4,7 @@ const modalGallery = document.querySelector(".modalGallery"); //pareil pour les 
 function createElement(element) //ajoute un élément
 {
     gallery.innerHTML +=`<figure class="imageFilter filter${element.category.id}"> <img crossorigin="anonymous" src="${element.imageUrl}" alt="${element.title}"> <figcaption>${element.title}</figcaption> </figure>`; //code HTML d'une photo
-    modalGallery.innerHTML +=`<figure class="figureModal"><img class="imageModal" crossorigin="anonymous" src="${element.imageUrl}"  alt="${element.title}"><figcaption>Éditer</figcaption></figure>`;
+    modalGallery.innerHTML +=`<figure class="figureModal"><img class="imageModal" crossorigin="anonymous" src="${element.imageUrl}"  alt="${element.title}"><i class="fa-solid fa-trash-can trashCan"></i><i class="fa-solid fa-arrows-up-down-left-right arrowMove"></i><figcaption>Éditer</figcaption></figure>`;
 }
 
 function filter(filterId) //filtre les photos par leur id
@@ -62,7 +62,7 @@ function loggedIn() //fonction pour faire disparaitre la barre des filtres et ap
     }
     else
     {
-        console.log("poulet")
+        console.log("invalid token")
     }
 }
 loggedIn()
@@ -80,6 +80,7 @@ function loginButton() //fonction pour changer le bouton login pour logout et in
     else if(token.startsWith({toString:() => "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"}))
     {
         sessionStorage.clear("token")
+        document.location.href = "index.html"
     }
     else
     {
@@ -92,4 +93,3 @@ editMode.addEventListener("click", () => {document.getElementById("modal").style
 
 const editModeClose = document.getElementById("buttonCloseModal");
 editModeClose.addEventListener("click", () => {document.getElementById("modal").style.visibility = "hidden"});
-
