@@ -1,5 +1,5 @@
 const gallery = document.querySelector(".gallery"); //pour indiquer où ajouter les photos
-const modalGallery = document.querySelector(".modalGallery"); //pareil pour les modales
+const modalGallery = document.getElementById("modalGallery"); //pareil pour les modales
 
 function createElement(element) //ajoute un élément
 {
@@ -82,7 +82,42 @@ function loginButton() //fonction pour changer le bouton login pour logout et in
 };
 
 const editMode = document.getElementById("editMode");
-editMode.addEventListener("click", () => {document.getElementById("modal").style.visibility = "visible"});
+editMode.addEventListener("click", editOpen);
+const backEdit = document.getElementById("buttonBackModal");
+backEdit.addEventListener("click", editOpen);
+
+function editOpen() //ouverture de la modale de base
+{
+    document.getElementById("modal").style.visibility = "visible";
+    document.querySelectorAll(".galleryEdit").forEach(element => {element.style.display = "flex"})
+    document.getElementById("titreModal").textContent = "Galerie photo"
+    document.querySelectorAll(".galleryAdd").forEach(element => {element.style.display = "none"})
+    document.getElementById("modalGallery").style.display = "grid"
+    document.getElementById("buttonBackModal").style.visibility = "hidden"
+};
+
+const addImage = document.getElementById("buttonAddImage"); //passe en mode ajout d'image
+addImage.addEventListener("click", () => 
+{
+    document.querySelectorAll(".galleryEdit").forEach(element => {element.style.display = "none"})
+    document.getElementById("modalGallery").style.display = "none"
+    document.getElementById("buttonBackModal").style.visibility = "visible"
+    document.querySelectorAll(".galleryAdd").forEach(element => {element.style.display = "flex"})
+    document.getElementById("titreModal").textContent = "Ajout photo"
+});
 
 const editModeClose = document.getElementById("buttonCloseModal");
-editModeClose.addEventListener("click", () => {document.getElementById("modal").style.visibility = "hidden"});
+editModeClose.addEventListener("click", closeModal);
+//const outZone = document.getElementById("modalContent")
+//outZone.addEventListener("click", (event) => {if (!outZone.contains(event.target) && document.getElementById("modal").style.visibility == "visible") {closeModal()} });
+
+function closeModal() //ferme la page modale 
+{
+    document.getElementById("modal").style.visibility = "hidden";
+    document.querySelectorAll(".galleryEdit").forEach(element => {element.style.display = "none"})
+    document.querySelectorAll(".galleryAdd").forEach(element => {element.style.display = "none"})
+    document.getElementById("buttonBackModal").style.visibility = "hidden"
+};
+
+//const searchImage = document.getElementById("buttonSearchImageVisual");
+//searchImage.addEventListener("click", () => {document.getElementById("buttonSearchImage").click})

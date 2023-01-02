@@ -19,7 +19,8 @@ form.addEventListener("submit", (event) => {
         },
         body: JSON.stringify(user) //pour envoyer user en Json
     })
-    .then((response) => {
+    .then((response) =>
+    {
         if (response.status == 200)
         {
             return response.json();
@@ -30,7 +31,8 @@ form.addEventListener("submit", (event) => {
             alert("Erreur dans l'identifiant ou le mot de passe") //erreur 401 si mauvais mot de passe ou 404 si mauvais mail
         }
     })
-    .then((data) => {
+    .then((data) =>
+    {
        //sessionStorage.setItem("userId", data.userId); //stockage userId
         sessionStorage.setItem("token", data.token);  //stockage token
         document.location.href = "index.html";  //redirection

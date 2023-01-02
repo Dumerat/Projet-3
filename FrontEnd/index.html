@@ -46,7 +46,7 @@
 	<div id="modal">
 		<div id="modalContent">
 			<div id="modalHeader"> 
-				<button class="buttonBackModal">
+				<button id="buttonBackModal">
 					<i class="fa-solid fa-arrow-left"></i>
 				</button>
 				<button id="buttonCloseModal">
@@ -54,11 +54,28 @@
 				</button>
 			</div>
 			<div id="modalMain">
-				<h3>Galerie photo</h3>
-				<div class="modalGallery"></div>
+				<h3 id="titreModal"></h3>
+				<div id="modalGallery"></div>
+					<form action="" method="post" id="sendImage" class="galleryAdd">
+						<div id="SendImageBox">
+							<label for="buttonSearchImage"><i class="fa-regular fa-image imageIcon"></i></label>
+							<label for="buttonSearchImage"> please work bro
+							<input id="buttonSearchImage" class="filtered" type="file" accept="image/jpeg,image/png,image" max="4194304" required></label>
+						</div>
+						<label for="Title">Titre</label>
+						<input type="text" name="Title" id="sendImageTitle" required>
+						<label for="Category">Catégorie</label>
+						<select name="Category" id="sendImageCategory">
+							<option value="1">Objets</option>
+							<option value="2">Appartements</option>
+							<option value="3">Hôtels & restaurants</option>
+						</select>
+					</form>
+				</section>
 				<hr>
-				<button class="buttonAddImage">Ajouter une photo</button>
-				<button class="buttonDeleteGallery">Supprime la galerie</button>
+				<input id="buttonSendImage" type="submit" class="galleryAdd" value="Valider"></input>
+				<button id="buttonAddImage" class="galleryEdit">Ajouter une photo</button>
+				<button class="buttonDeleteGallery galleryEdit">Supprime la galerie</button>
 			</div>
 		</div>
 	</div>

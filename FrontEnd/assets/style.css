@@ -333,7 +333,7 @@ hr{
 	border: 1px solid #B3B3B3;
 }
 
-.buttonBackModal, #buttonCloseModal{
+#buttonBackModal, #buttonCloseModal{
   font-size: 21px;
   cursor: pointer;
   background: transparent;
@@ -342,11 +342,11 @@ hr{
   color: #000;
 }
 
-.buttonBackModal{
+#buttonBackModal{
   visibility: hidden;
 }
 
-.buttonAddImage{
+#buttonAddImage{
 	padding: 10px 20px;
 	color: white;
 	background: #1D6154;
@@ -366,7 +366,7 @@ button{
 	font-family: "syne";
 }
 
-.modalGallery{
+#modalGallery{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-column-gap: 10px;
@@ -412,6 +412,43 @@ button{
 	opacity: 1;
 }
 
-@media screen {
-	
+#sendImage{
+	flex-direction: column;
+	row-gap: 10px;
+	width: 80%;
 }
+
+#sendImageCategory, #sendImageTitle{
+	height: 51px;
+	border: none;
+	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+	color: #444444;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+#sendImageCategory{
+	background-color: white;
+	height: 53px;
+}
+
+#buttonSendImage{
+	padding: 10px;
+	width: 35%;
+}
+
+#SendImageBox{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #E8F1F6;
+	height: 169px;
+	margin-bottom: 20px;
+}
+
+.imageIcon{
+	margin: 20px 0px;
+	font-size: 50px;
+	color: #B9C5CC;
+}
+
