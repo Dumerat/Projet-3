@@ -16,7 +16,7 @@
 <!--Barre d'édit au dessus du header en mode admin-->
 <nav id="adminPanel">
 	<button id="editButton"><i class="fa-regular fa-pen-to-square"></i>Mode édition</button>
-	<button id="publishButton"><a href="index.html">publier les changements</a></button>
+	<button id="publishButton">publier les changements</button>
 </nav>
 
 <header>
@@ -56,36 +56,37 @@
 			<div id="modalMain">
 				<h3 id="titreModal"></h3>
 				<div id="modalGallery"></div>
-					<form action="" method="post" id="sendImage" class="galleryAdd">
-						<div id="SendImageBox">
-							<label for="buttonSearchImage"><i class="fa-regular fa-image imageIcon"></i></label>
-							<label for="buttonSearchImage"> please work bro
-							<input id="buttonSearchImage" class="filtered" type="file" accept="image/jpeg,image/png,image" max="4194304" required></label>
+					<form method="post" id="sendImage" class="galleryAdd">
+						<div id="sendImageBox">
+							<label class="sendImageContent" for="buttonSearchImage"><i class="fa-regular fa-image imageIcon"></i></label>
+							<label class="sendImageContent" id="buttonAddImageData" for="buttonSearchImage"> +Ajouter image
+							<input id="buttonSearchImage" class="filtered" type="file" accept="image/jpeg,image/png,image/jpg" required></label>
+							<label class="sendImageContent" id="subtitleImage">jpg.png: 4mo max</label>
+							<img id="imageShowPreview" alt="your image" src="#">
 						</div>
-						<label for="Title">Titre</label>
+						<label>Titre</label>
 						<input type="text" name="Title" id="sendImageTitle" required>
-						<label for="Category">Catégorie</label>
-						<select name="Category" id="sendImageCategory">
+						<label>Catégorie</label>
+						<select id="sendImageCategory">
 							<option value="1">Objets</option>
 							<option value="2">Appartements</option>
 							<option value="3">Hôtels & restaurants</option>
 						</select>
 					</form>
-				</section>
 				<hr>
-				<input id="buttonSendImage" type="submit" class="galleryAdd" value="Valider"></input>
+				<input id="buttonSendImage" type="submit" class="galleryAdd" value="Valider">
 				<button id="buttonAddImage" class="galleryEdit">Ajouter une photo</button>
 				<button class="buttonDeleteGallery galleryEdit">Supprime la galerie</button>
 			</div>
 		</div>
 	</div>
 	<section id="portfolio">
-		<h2>Mes Projets <i id="editMode" class="fa-regular fa-pen-to-square"><span id="editModeModifier"> modifier</i></span></h2>
+		<h2>Mes Projets <i id="editMode" class="fa-regular fa-pen-to-square"><span id="editModeModifier"> modifier</span></i></h2>
 		<section id="buttonFilter">
-			<button onclick="filter('filter0')">Tous</button>
-			<button onclick="filter('filter1')">Objets</button>
-			<button onclick="filter('filter2')">Appartements</button>
-			<button onclick="filter('filter3')">Hôtels & restaurants</button>
+			<button data-Id="0">Tous</button>
+			<button data-Id="1">Objets</button>
+			<button data-Id="2">Appartements</button>
+			<button data-Id="3">Hôtels & restaurants</button>
 		</section>
 		<div class="gallery"></div>
 	</section>
