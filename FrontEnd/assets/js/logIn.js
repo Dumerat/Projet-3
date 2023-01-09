@@ -1,5 +1,3 @@
-//on espère ça marche
-
 let emailInput = document.getElementById("email");
 let passwordInput = document.getElementById("password");
 let form = document.querySelector("form");

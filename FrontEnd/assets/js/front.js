@@ -23,7 +23,7 @@ function filter(filterId) //filtre les photos par leur id
         {
             imageFilter[i].classList.remove("filtered"); //affiche l'image
         }
-        else if (filterId == "filter0") //boutton TOUT
+        else if (filterId === "filter0") //boutton TOUT
         {
             imageFilter[i].classList.remove("filtered"); //affiche toutes les images
         }
@@ -69,8 +69,7 @@ function loggedIn() //fonction pour faire disparaitre la barre des filtres et ap
 }
 loggedIn()
 
-const login = document.querySelector("#loginA");
-login.addEventListener('click', loginButton);
+document.querySelector("#loginA").addEventListener('click', loginButton);
 
 function loginButton() //fonction pour changer le bouton login pour logout et inversement
 {
@@ -124,7 +123,7 @@ const imagePreview = document.getElementById("buttonSearchImage");
 imagePreview.addEventListener("change", (event) => //event pour afficher l'image à la place de la fenêtre d'ajout
 {
     const file = event.target.files[0];
-    if(file.size < 4194304)
+    if(file.size < 4194304) //vérifie la taille de l'image
     {
         const imagePreviewBox = document.getElementById("imageShowPreview");
         const fileUrl = URL.createObjectURL(file);
