@@ -34,7 +34,7 @@ form.addEventListener("submit", (event) => {
        //sessionStorage.setItem("userId", data.userId); //stockage userId
         sessionStorage.setItem("token", data.token);  //stockage token
         document.location.href = "index.html";  //redirection
-        console.log(data.token)
+        // console.log(data.token)
     })
     .catch((error) => {
         console.log(error);

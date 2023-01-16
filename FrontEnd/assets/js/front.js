@@ -45,7 +45,7 @@ fetch('http://localhost:5678/api/works')
     })
     .then((value) =>
     {
-        for(i=0; i< value.length; i++) //boucle pour récupérer et séparer chaque élément
+        for(i=0; i < value.length; i++) //boucle pour récupérer et séparer chaque élément
         {
             createElement(value[i]); //appelle la fonction createElement pour chaque photo reçu de l'api
         }
@@ -58,7 +58,7 @@ fetch('http://localhost:5678/api/works')
 function loggedIn() //fonction pour faire disparaitre la barre des filtres et apparaitre le bouton modifier
 {
     const token = sessionStorage.getItem("token");
-    if (!token) {return 0}
+    if (!token) {loginButton}
     else if (token)
     {
         document.getElementById("buttonFilter").style.display = 'none';
@@ -85,18 +85,22 @@ function loginButton() //fonction pour changer le bouton login pour logout et in
     }
 };
 
+//partie Modal
 document.getElementById("editMode").addEventListener("click", editOpen);
 document.getElementById("buttonBackModal").addEventListener("click", editOpen);
 
 function editOpen() //ouverture de la modale de base
 {
-    document.getElementById("modal").style.visibility = "visible";
-    document.querySelectorAll(".galleryEdit").forEach(element => {element.style.display = "flex"})
-    document.getElementById("titreModal").textContent = "Galerie photo"
-    document.querySelectorAll(".galleryAdd").forEach(element => {element.style.display = "none"})
-    modalGallery.style.display = "grid"
-    document.getElementById("buttonBackModal").style.visibility = "hidden"
-    trashListener()
+    if (loggedIn)
+    {
+        document.getElementById("modal").style.visibility = "visible";
+        document.querySelectorAll(".galleryEdit").forEach(element => {element.style.display = "flex"})
+        document.getElementById("titreModal").textContent = "Galerie photo"
+        document.querySelectorAll(".galleryAdd").forEach(element => {element.style.display = "none"})
+        modalGallery.style.display = "grid"
+        document.getElementById("buttonBackModal").style.visibility = "hidden"
+        trashListener()
+    }
 };
 
 document.getElementById("buttonAddImage").addEventListener("click", () => //passe en mode ajout d'image
@@ -159,7 +163,7 @@ function deleteWork(id) //supprime un travail au niveau de l'api avec le bouton 
     .catch((error) => {console.log(error)});
 }
 
-function trashListener() //event icone poubelle pour supprimé un proje dynamiquement
+function trashListener() //event icone poubelle pour supprimé un projet dynamiquement
 {
     const work = document.getElementById("modalMain");
     const buttonDelete = Array.from(document.getElementsByClassName("trashCan"));
